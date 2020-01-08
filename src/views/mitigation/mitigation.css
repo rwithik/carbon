@@ -1,27 +1,21 @@
-.track__choices {
+.mitigation__choices {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   -ms-align-items: center;
   align-items: center;
-  margin-top: 10rem;
+  padding: 7rem 2rem;
 }
 
-.track__option {
+.mitigation__option {
+  width: 20%;
   margin: auto;
-  color: rgb(20, 160, 20);
-  border: 1px rgb(20, 160, 20) solid;
-  border-radius: 15px;
-  transition: color 150ms ease-in, border 150ms ease-in;
-  font-size: 1.6em;
-  padding: 1rem 2rem;
   cursor: pointer;
 }
 
-.track__option:hover {
-  color: white;
-  background-color: var(--limegreen);
+.option__image {
+  width: 100%;
 }
 
 .select-css {

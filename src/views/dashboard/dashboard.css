@@ -1,8 +1,18 @@
-.dashboard {
+.dashboard__choices {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
   justify-content: center;
   -ms-align-items: center;
   align-items: center;
+  padding: 7rem 2rem;
+}
+
+.dashboard__option {
+  width: 30%;
+  margin: auto;
+}
+
+.option__image {
+  width: 100%;
 }

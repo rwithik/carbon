@@ -2,8 +2,8 @@
 
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./navbar.css";
-import logo from "../public/images/green_tea.jpg";
+// import "./navbar.css";
+import logo from "../public/images/green_tea.png";
 
 class NavBar extends Component {
   state = {
@@ -11,16 +11,16 @@ class NavBar extends Component {
   };
   render() {
     return (
-      <nav className="navbar" style={navStyle}>
+      <nav className="navbar" style={styles.navStyle}>
         <Link to="/">
           <img
             className="navbar__logo"
             src={logo}
             alt="logo"
-            style={logoStyle}
+            style={styles.logoStyle}
           />
         </Link>
-        <div className="navbar__user" style={navTextStyle}>
+        <div className="navbar__user" style={styles.navTextStyle}>
           Hello {this.state.username}
         </div>
       </nav>
@@ -30,24 +30,25 @@ class NavBar extends Component {
 
 const navHeight = "10vh";
 
-const navStyle = {
-  boxSizing: "border-box",
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "space-between",
-  alignItems: "center",
-  maxHeight: navHeight,
-  padding: "0 1rem 0.5rem",
-  backgroundColor: "#e8e8e8"
-};
+const styles = {
+  navStyle: {
+    boxSizing: "border-box",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    maxHeight: navHeight,
+    padding: "0.5rem 1rem",
+    backgroundColor: "#e8e8e8"
+  },
 
-const logoStyle = {
-  maxHeight: navHeight
-};
+  logoStyle: {
+    maxHeight: navHeight
+  },
 
-const navTextStyle = {
-  fontSize: "1.5em",
-  color: "#3fa43f"
+  navTextStyle: {
+    fontSize: "1.5em",
+    color: "#3fa43f"
+  }
 };
-
 export default NavBar;
