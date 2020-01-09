@@ -62,3 +62,13 @@
 .select-css option {
   font-weight: normal;
 }
+
+@media screen and (max-width: 600px) {
+  .track__choices {
+    margin-top: 5rem;
+    flex-direction: column;
+  }
+  .track__option {
+    margin-top: 2rem;
+  }
+}

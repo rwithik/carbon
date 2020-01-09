@@ -69,7 +69,7 @@ class Mitigation extends Component {
         <div className="mitigation__choices">
           <div
             className="mitigation__option"
-            onClick={() => this.onClickHandler("bicycle")}
+            onClick={() => this.onClickHandler("cycle")}
           >
             <img className="option__image" src={bicycle} alt="" />
           </div>
@@ -81,7 +81,7 @@ class Mitigation extends Component {
           </div>
           <div
             className="mitigation__option"
-            onClick={() => this.onClickHandler("plants")}
+            onClick={() => this.onClickHandler("tree")}
           >
             <img className="option__image" src={bicycle} alt="" />
           </div>
@@ -89,8 +89,8 @@ class Mitigation extends Component {
         <Modal
           show={this.state.showModal}
           close={this.hideModal}
-          header={this.header}
-          content={this.content}
+          category={this.state.activeOption}
+          source="mitigation"
         />
       </div>
     );

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import SurveyForm from "./surveyForm";
+// import StatChart from "./statChart";
 
 class Modal extends Component {
   close = () => {
@@ -11,8 +13,15 @@ class Modal extends Component {
       return (
         <div className="modal" id="modal" style={styles.modal}>
           <div className="modal__header">{this.props.header}</div>
-          <div className="modal__content">{this.props.content}</div>
-          <div className="modal__footer">
+          <div className="modal__content">
+            {this.props.source !== "track" ? (
+              <SurveyForm category={this.props.category} />
+            ) : (
+              // <StatChart category={this.props.category} />
+              <div></div>
+            )}
+          </div>
+          <div className="modal__footer" style={{ marginTop: "auto" }}>
             <button
               className="modal__close"
               style={styles.button}

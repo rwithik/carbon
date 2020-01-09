@@ -53,3 +53,10 @@
 .select-css option {
   font-weight: normal;
 }
+
+@media screen and (max-width: 600px) {
+  .measure__choices {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}

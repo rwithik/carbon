@@ -1,9 +1,71 @@
 import React, { Component } from "react";
 
-class LoginForm extends Component {
+import "./survey.css";
+
+class SurveyForm extends Component {
   state = {
-    username: "",
-    password: ""
+    answers: {
+      household: {
+        q1: "",
+        q2: "",
+        q3: "",
+        q4: ""
+      },
+      electronics: {
+        q1: ""
+      },
+      car: {
+        q1: "",
+        q2: "",
+        q3: ""
+      },
+      flight: {
+        q1: "",
+        q2: ""
+      },
+      food: {
+        q1: ""
+      },
+      transport: {
+        q1: "",
+        q2: "",
+        q3: ""
+      },
+      cycle: {
+        q1: ""
+      },
+      tree: {
+        q1: ""
+      },
+      sharing: {
+        q1: ""
+      }
+    }
+  };
+
+  questions = {
+    household: [
+      "No. Of persons in your house: ",
+      "Electricity consumption in kwH: ",
+      "LPG consumption in litres: ",
+      "Wood in tonnes: "
+    ],
+    flight: ["Class of Travel(Economy/Business): ", "Total Miles: "],
+    transport: [
+      "Total miles in a bus: ",
+      "Total miles in Train: ",
+      "Total miles in tube/subway: "
+    ],
+    car: [
+      "Fuel used(Petro/diesel/CNG): ",
+      "Mileage of your vehicle(miles): ",
+      "Total Miles: "
+    ],
+    electronics: ["Amount of Electronics purchased in US$: "],
+    food: ["Amount of Red Meat consumed in KG: "],
+    cycle: ["No. of miles cycled instead of a car: "],
+    tree: ["No. of Saplings planted: "],
+    sharing: ["No. of miles car pooled instead of driving alone: "]
   };
 
   onChangeHandler = e => {
@@ -19,63 +81,32 @@ class LoginForm extends Component {
   };
 
   render() {
+    const questions = this.questions[this.props.category];
+    console.log(questions);
+    const inputs = questions.map((item, index) => {
+      return (
+        <div>
+          <label htmlFor={`q${index + 1}`}>{questions[index]}</label>
+          <input
+            name={`q${index + 1}`}
+            placeholder="Enter your answer"
+            className="form__input"
+            value={this.state.answers[this.props.category][`q${index + 1}`]}
+            onChange={this.onChangeHandler}
+          />
+        </div>
+      );
+    });
+
     return (
-      <div className="login-container">
-        <form className="login__form" style={styles.form}>
-          <div>
-            <label htmlFor="input1">No. Of persons in your house:</label>
-            <input
-              style={styles.input}
-              name="input1"
-              placeholder="Enter your answer"
-              className="form__input"
-              value={this.state.username}
-              onChange={this.onChangeHandler}
-            />
-          </div>
-          <div>
-            <label htmlFor="input1">Electricity consumption in kwH:</label>
-            <input
-              style={styles.input}
-              name="input1"
-              placeholder="Enter your answer"
-              className="form__input"
-              value={this.state.username}
-              onChange={this.onChangeHandler}
-            />
-          </div>
-          <div>
-            <label className="form__label" htmlFor="input1">
-              LPG consumption in litres:
-            </label>
-            <input
-              style={styles.input}
-              name="input1"
-              placeholder="Enter your answer"
-              className="form__input"
-              value={this.state.username}
-              onChange={this.onChangeHandler}
-            />
-          </div>
-          <div>
-            <label className="form__label" htmlFor="input1">
-              Wood in tonnes:
-            </label>
-            <input
-              style={styles.input}
-              name="input1"
-              placeholder="Enter your answer"
-              className="form__input"
-              value={this.state.username}
-              onChange={this.onChangeHandler}
-            />
-          </div>
+      <div className="survey-container">
+        <form className="survey__form">
+          {inputs}
 
           <input
             type="submit"
             value="Submit"
             className="submit__btn"
-            style={styles.button}
             onSubmit={this.onSubmit}
           />
         </form>
@@ -84,42 +115,4 @@ class LoginForm extends Component {
   }
 }
 
-const styles = {
-  form: {
-    boxSizing: "border-box",
-    height: "80vh",
-    width: "80vw",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    position: "absolute",
-    padding: "3rem",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: "10px",
-    border: "2px rgb(20, 160, 20) solid",
-    boxShadow: "0 0 10px rgba(20, 160, 20, 0.5)"
-  },
-  input: {
-    margin: "1rem auto 1rem 1rem",
-    backgroundColor: "white",
-    color: "rgb(20, 160, 20)",
-    border: "1px currentColor solid",
-    padding: "0.5rem 0.4rem",
-    borderRadius: "5px"
-  },
-  button: {
-    all: "unset",
-    backgroundColor: "white",
-    color: "rgb(20, 160, 20)",
-    marginTop: "1rem",
-    padding: "0.3rem 0.6rem",
-    border: "1px currentColor solid",
-    borderRadius: "5px",
-    cursor: "pointer"
-  }
-};
-
-export default LoginForm;
+export default SurveyForm;
