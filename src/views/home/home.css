@@ -55,7 +55,9 @@ a {
 }
 
 .step__text {
-  margin: auto auto;
+  text-align: left;
+  width: 50%;
+  margin-left: auto;
 }
 
 .process__step--dark {
