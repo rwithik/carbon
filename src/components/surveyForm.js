@@ -71,18 +71,36 @@ class SurveyForm extends Component {
   onChangeHandler = e => {
     let value = e.target.value;
     let name = e.target.name;
+    let cat = this.state.answers[this.props.category];
+    cat[e.target.name] = e.target.value;
     this.setState({
-      [name]: value
+      answers: {
+        ...this.state.answers,
+        [this.props.category]: cat
+      }
     });
   };
 
   onSubmit = e => {
     e.preventDefault();
+    const { category, source } = this.props;
+    let data =
+      JSON.parse(localStorage.getItem("carbon.data_footprint")) || null;
+    if (!data)
+      data = {
+        [this.props.month]: null
+      };
+    if (!data[this.props.month]) {
+      data[this.props.month] = this.state.answers;
+    } else {
+      data[this.props.month][category] = this.state.answers[category];
+    }
+    localStorage.setItem("carbon.data_footprint", JSON.stringify(data));
+    alert();
   };
 
   render() {
     const questions = this.questions[this.props.category];
-    console.log(questions);
     const inputs = questions.map((item, index) => {
       return (
         <div>
@@ -107,7 +125,7 @@ class SurveyForm extends Component {
             type="submit"
             value="Submit"
             className="submit__btn"
-            onSubmit={this.onSubmit}
+            onClick={this.onSubmit}
           />
         </form>
       </div>

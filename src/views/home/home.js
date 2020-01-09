@@ -4,6 +4,10 @@ import NavBar from "../../components/navbar";
 import "./home.css";
 
 import landinggif from "../../public/landing.gif";
+import tools from "../../public/images/tools.png";
+import measure from "../../public/images/measure.png";
+import speechBub from "../../public/images/speech_bubble.png";
+import thinking from "../../public/images/man_thinking.png";
 
 export default class Home extends Component {
   render() {
@@ -31,16 +35,23 @@ export default class Home extends Component {
         <section className="process">
           <h1 className="process__title">The Creative Design Process</h1>
           <div className="process__step process__step--dark">
-            Step 1: Track your journey.
+            <img className="step__img" src={measure} />
+            <p className="step__text"> Step 1: Track your journey. </p>
           </div>
           <div className="process__step process__step--light">
-            Step 2: Understand the implications.
+            <img className="step__img" src={thinking} />
+            <p className="step__text"> Step 2: Understand the implications. </p>
           </div>
           <div className="process__step process__step--dark">
-            Step 3: Think of the corrective measures.
+            <img className="step__img" src={speechBub} />
+            <p className="step__text">
+              {" "}
+              Step 3: Think of the corrective measures.{" "}
+            </p>
           </div>
           <div className="process__step process__step--light">
-            Step 4: Change and update.
+            <img className="step__img" src={tools} />
+            <p className="step__text"> Step 4: Change and update. </p>
           </div>
         </section>
         <section className="footer">

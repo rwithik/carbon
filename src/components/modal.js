@@ -12,10 +12,18 @@ class Modal extends Component {
     else
       return (
         <div className="modal" id="modal" style={styles.modal}>
-          <div className="modal__header">{this.props.header}</div>
+          <div
+            className="modal__header"
+            style={{ fontCapsVariant: "smallCaps" }}
+          >
+            <h3>{this.props.category.toUpperCase()}</h3>
+          </div>
           <div className="modal__content">
             {this.props.source !== "track" ? (
-              <SurveyForm category={this.props.category} />
+              <SurveyForm
+                category={this.props.category}
+                month={this.props.month}
+              />
             ) : (
               // <StatChart category={this.props.category} />
               <div></div>

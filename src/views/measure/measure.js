@@ -14,11 +14,11 @@ import "./measure.css";
 class Measure extends Component {
   state = {
     activeOption: null,
-    showModal: false
+    showModal: false,
+    month: "January"
   };
 
   showModal = target => {
-    console.log("show");
     this.setState({
       showModal: true,
       activeOption: target
@@ -26,7 +26,6 @@ class Measure extends Component {
   };
 
   hideModal = () => {
-    console.log("hide");
     this.setState({
       activeOption: null,
       showModal: false
@@ -35,6 +34,12 @@ class Measure extends Component {
 
   onClickHandler = target => {
     this.showModal(target);
+  };
+
+  onChangeHandler = e => {
+    this.setState({
+      month: e.target.value
+    });
   };
 
   render() {
@@ -47,7 +52,7 @@ class Measure extends Component {
             measures
           </p>
 
-          <select className="select-css">
+          <select className="select-css" onChange={this.onChangeHandler}>
             <option>Select Month</option>
             <option>January</option>
             <option>February</option>
@@ -125,6 +130,7 @@ class Measure extends Component {
           header={this.state.activeOption}
           source="measure"
           category={this.state.activeOption}
+          month={this.state.month}
         />
       </div>
     );

@@ -11,7 +11,8 @@ import "./mitigation.css";
 class Mitigation extends Component {
   state = {
     activeOption: null,
-    showModal: false
+    showModal: false,
+    month: "January"
   };
 
   header = "Carbon Footprint";
@@ -22,7 +23,6 @@ class Mitigation extends Component {
   // }
 
   showModal = target => {
-    console.log("show");
     this.setState({
       showModal: true,
       activeOption: target
@@ -30,7 +30,6 @@ class Mitigation extends Component {
   };
 
   hideModal = () => {
-    console.log("hide");
     this.setState({
       activeOption: null,
       showModal: false
@@ -39,6 +38,12 @@ class Mitigation extends Component {
 
   onClickHandler = target => {
     this.showModal(target);
+  };
+
+  onChangeHandler = e => {
+    this.setState({
+      month: e.target.value
+    });
   };
 
   render() {
@@ -50,7 +55,7 @@ class Mitigation extends Component {
             Please choose a particular month for entering carbon mitigation
             measures
           </p>
-          <select class="select-css">
+          <select class="select-css" onChange={this.onChangeHandler}>
             <option>Select Month</option>
             <option>January</option>
             <option>February</option>
@@ -91,6 +96,7 @@ class Mitigation extends Component {
           close={this.hideModal}
           category={this.state.activeOption}
           source="mitigation"
+          month={this.state.month}
         />
       </div>
     );

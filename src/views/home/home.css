@@ -36,20 +36,26 @@ a {
   /* background-image: linear-gradient(33deg, lime, lightgreen); */
 }
 
-.process {
-}
-
 .process__title {
   font-size: 2.5rem;
   padding: 0 0;
 }
 
 .process__step {
-  display: grid;
-  /* justify-content: center; */
+  display: flex;
+  justify-content: center;
   -ms-align-items: center;
   align-items: center;
   height: 20vh;
+}
+
+.step__img {
+  margin-left: auto;
+  max-height: 100%;
+}
+
+.step__text {
+  margin: auto auto;
 }
 
 .process__step--dark {
