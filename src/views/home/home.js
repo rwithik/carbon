@@ -4,16 +4,17 @@ import NavBar from "../../components/navbar";
 import "./home.css";
 
 import landinggif from "../../public/landing.gif";
-import tools from "../../public/images/tools.png";
-import measure from "../../public/images/measure.png";
-import speechBub from "../../public/images/speech_bubble.png";
-import thinking from "../../public/images/man_thinking.png";
+// import tools from "../../public/images/tools.png";
+// import measure from "../../public/images/measure.png";
+// import speechBub from "../../public/images/speech_bubble.png";
+// import thinking from "../../public/images/man_thinking.png";
+import workflow from "../../public/images/workflow.png";
 
 export default class Home extends Component {
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar loggedIn={false} />
         <section className="landing">
           <div className="landing__container">
             <img
@@ -33,8 +34,9 @@ export default class Home extends Component {
           </div>
         </section>
         <section className="process">
-          <h1 className="process__title">The Creative Design Process</h1>
-          <div className="process__step process__step--dark">
+          <h1 className="process__title">How it works?</h1>
+          <img src={workflow} alt="" />
+          {/* <div className="process__step process__step--dark">
             <img className="step__img" src={measure} />
             <p className="step__text"> Step 1: Track your journey. </p>
           </div>
@@ -52,14 +54,14 @@ export default class Home extends Component {
           <div className="process__step process__step--light">
             <img className="step__img" src={tools} />
             <p className="step__text"> Step 4: Change and update. </p>
-          </div>
+          </div> */}
         </section>
         <section className="footer">
           <Link to="/login" className="footer__link footer__link--login">
             Login
           </Link>
           <div className="footer__bottom-bar">
-            <div className="bottom-bar__item">Privacy/Terms</div>
+            {/* <div className="bottom-bar__item">Privacy/Terms</div> */}
             <div className="bottom-bar__item">Copyright 2019</div>
           </div>
         </section>
